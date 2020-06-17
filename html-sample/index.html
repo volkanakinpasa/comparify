@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html class="no-js is-desktop"  >
+<head>
+
+
+<body>
+<div id="tool-main">
+
+  <div id="tool" style="background-color: green; width: 200px; height: 25px;;">
+    <button onclick="show()">show</button>
+    <button onclick="hide()">show</button>
+  </div>
+</div>
+<script>
+   const toolMainCssTextRoot = "  position: fixed;bottom: 0;left: 0;right: 0;z-index: 9;width: 100%;position: -webkit-sticky;display: flex;justify-content: flex-end;";
+
+  function show () {
+ 
+
+   document.getElementById('tool').style.height = "200px";
+   document.getElementById('tool-main').style.height = "100%";
+   document.getElementById('tool-main').style.cssText = toolMainCssTextRoot + "height:100%; opacity: .65;background-color: #111;";
+  }
+
+  function hide () {
+   document.getElementById('tool').style.height = "23px";
+   document.getElementById('tool-main').style.cssText = toolMainCssTextRoot;
+  }
+
+  document.getElementById('tool-main').style.cssText = toolMainCssTextRoot;
+</script>
+
+</body>
+</html>

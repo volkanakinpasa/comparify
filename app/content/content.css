@@ -1,0 +1,30 @@
+.compare-extension {
+  opacity: 1;
+  right: 10px !important;
+  position: fixed !important;
+  bottom: 10px !important;
+  width: 37px;
+  height: 37px;
+  margin: 5px;
+}
+
+.compare-extension-disabled {
+  opacity: 0.5;
+}
+
+.compare-extension img {
+  transition: transform 0.5s ease;
+}
+
+.compare-extension:hover img {
+  transform: scale(1.1);
+}
+
+.compare-extension-disabled {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  opacity: 0.2;
+  cursor: not-allowed;
+}
