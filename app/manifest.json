@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Comparify - Compare products on bol.com, coolblue, amazon etc.",
+  "name": "Comparify on bol.com, coolblue",
   "short_name": "Comparify",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "permissions": [
     "https://www.bol.com/",
     "https://www.coolblue.nl/",
