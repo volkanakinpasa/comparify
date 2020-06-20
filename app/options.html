@@ -1,96 +1,118 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>compare.bol.com</title>
-    
+    <title>Comparify</title>
+
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
     <link rel="stylesheet" href="options/options.css" />
     <script
-    src="scripts/jquery-3.5.1.min.js"
-    type="text/javascript"
-    charset="utf-8"
-  ></script>
+      src="scripts/jquery-3.5.1.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
     <script
       src="scripts/bootstrap.min.js"
       type="text/javascript"
       charset="utf-8"
     ></script>
     <script
-    src="options/options.js"
-    type="text/javascript"
-    charset="utf-8"
-  ></script>
+      src="options/options.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
     <script
       src="scripts/mustache.min.js"
       type="text/javascript"
       charset="utf-8"
     ></script>
-   
-
   </head>
-
+ 
   <body>
-   
     <div id="template" style="display: none;">
       <div class="p-4 header">
         <h1 class="display-3">Comparify</h1>
         <p class="lead">
-          Compare the products below on Bol.com
+          Compare products here from Bol.com & Coolblue & Amazon etc.
         </p>
-       
       </div>
       <div class="list p-4">
-        {{#list.length}}
-        <p><button id="btn-compare-all-1" class="btn-compare-all btn">Compare all</button></p>
-        <p>
-          <div class="d-flex flex-row flex-wrap align-items-stretch">
-            {{#list}}
+        {{#list.length}} {{#list}}
+        <div class="my-5">
+          <div>
+            <button
+              id="btn-compare-all-1"
+              class="btn-compare-all btn"
+              domain="{{domain}}"
+            >
+              Compare on {{domain}}
+            </button>
+          </div>
+          <div class="d-flex flex-row flex-wrap align-items-stretch my-2">
+            {{#values}}
             <div
-              class="list-group-item list-group-item-action border flex-column align-items-start  mr-3 mb-3"
+              class="list-group-item list-group-item-action border flex-column align-items-start mr-3 mb-3"
               title="{{title}}"
               target="_blank"
-              style="min-width: 200px;max-width: 300px;"
+              style="min-width: 200px; max-width: 300px;"
             >
               <div class="d-flex align-items-stretch justify-content-between">
-                <span>{{domain}}</span>
-                <button id="btn-remove-{{id}}" class="btn-remove close">x</button>
-                
+                <span class="font-weight-bold pb-1">{{domain}}</span>
+                <button id="btn-remove-{{id}}" class="btn-remove close">
+                  x
+                </button>
               </div>
-               
+
               {{#imageUrl.length}}
               <p class="text-center">
-                <a
-                href="{{url}}"
-                title="{{title}}"
-                target="_blank"
-              >
-                <img src="{{imageUrl}}" style="max-width: 257px;min-height: 173px; max-height: 173px; padding: 5px 0;"/>
-              </a>
+                <a href="{{url}}" title="{{title}}" target="_blank">
+                  <img
+                    src="{{imageUrl}}"
+                    style="
+                      max-width: 257px;
+                      min-height: 173px;
+                      max-height: 173px;
+                      padding: 5px 0;
+                    "
+                  />
+                </a>
               </p>
               {{/imageUrl.length}}
-              <p>{{price}}</p>
+              <p>Price: <span class="font-weight-bold">{{price}}</span></p>
               <p class="mb-1">
-              <a
-                href="{{url}}"
-                title="{{title}}"
-                target="_blank"
-              >  {{title}} </a>
+                <a href="{{url}}" title="{{title}}" target="_blank">
+                  {{title}}
+                </a>
               </p>
-              
-              </div>
-            {{/list}}
-           
+            </div>
+            {{/values}}
           </div>
-          
+        </div>
+        {{/list}}
+        <!-- <p>
+          <button id="btn-delete-list" class="btn" onclick="deleteAll()">
+            Delete all items
+          </button> -->
         </p>
-        
-        <p> <button id="btn-compare-all-2" class="btn-compare-all btn">Compare all</button></p>
+        {{/list.length}} {{^list.length}}
+        <p>
+          You don't have any products to compare. Please visit any of the web
+          sites below and start adding the prodcuts.
+        </p>
+ 
         {{/list.length}}
-        {{^list.length}}
-         <p>You don't have any products to compare. 
-           Visit the web site and start adding the prodcuts.
-         </p>
-        {{/list.length}}
+        <div class="product-list-external d-flex">
+          <div class="pr-4">
+            <a href="https://www.bol.com/">
+              <img id="img-logo_bolcom" class="border" src="{{bolcomimageurl}}" alt="" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.coolblue.nl/">
+              <img id="img-logo-coolblue" class="border" src="{{coolblueimageurl}}" alt="" />
+            </a>
+          </div>
+          <div></div>
+        </div>
       </div>
     </div>
     <div id="output"></div>

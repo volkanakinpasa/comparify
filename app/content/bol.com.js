@@ -14,25 +14,25 @@ const readPriceOnBolCom = () => {
     const div = document.getElementsByClassName('promo-price')[0];
     if (div && div.innerText) {
       price = div.innerText;
+      price = price.split('\n')[0];
     }
-
-    price = price.match('([0-9]+(.[0-9]{2})?)')[0];
   } catch (err) {}
 
   return price;
 };
 
 const getModelObjectOnBolCom = (e) => {
-  var url = e.target.URL;
+  var uri = new URL(e.target.URL);
   const title = e.target.title;
-  const productId = url.split('/')[6];
+  //const productId = uri.pathname.match(/dp\/([a-zA-Z0-9_]*)/);
+  const productId = uri.pathname.match(/(\d)+/)[0];
   const price = readPriceOnBolCom();
 
   const model = {
     title,
     productId: productId,
     id: create_UUID(),
-    url,
+    url: uri.toString(),
     domain: e.target.domain,
     price,
   };

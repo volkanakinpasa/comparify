@@ -9,13 +9,17 @@
 };
 
 const readPriceOnCoolBlue = () => {
+  let price = '';
   try {
-    return document
-      .getElementsByClassName('sales-price__current')[0]
-      .innerText.match('([0-9]+(.[0-9]{2})?)')[0];
-  } catch (err) {
-    return '';
-  }
+    const div = document.getElementsByClassName('sales-price__current')[0];
+    if (div && div.innerText) {
+      price = div.innerText;
+      price = price.split(',')[0];
+      price = price.replace('.', '');
+    }
+  } catch (err) {}
+
+  return price;
 };
 
 const getModelObjectOnCoolBlue = (e) => {
