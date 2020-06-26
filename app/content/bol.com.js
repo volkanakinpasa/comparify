@@ -1,4 +1,18 @@
-﻿const validObjectOnBolCom = (e) => {
+﻿const getProductIdBolCom = (pathName) => {
+  const urlMatch = pathName.match(/\/(\d+)/);
+  if (
+    urlMatch &&
+    urlMatch.length > 1 &&
+    urlMatch[1] != '' &&
+    urlMatch[1].length > 10
+  ) {
+    return urlMatch[1];
+  } else {
+    return null;
+  }
+};
+
+const validObjectOnBolCom = (e) => {
   try {
     const model = getModelObjectOnBolCom(e);
     if (!model || !model.productId || isNaN(model.productId)) return false;
@@ -14,7 +28,7 @@ const readPriceOnBolCom = () => {
     const div = document.getElementsByClassName('promo-price')[0];
     if (div && div.innerText) {
       price = div.innerText;
-      price = price.split('\n')[0];
+      price = price.replace('\n', ',');
     }
   } catch (err) {}
 
@@ -25,7 +39,10 @@ const getModelObjectOnBolCom = (e) => {
   var uri = new URL(e.target.URL);
   const title = e.target.title;
   //const productId = uri.pathname.match(/dp\/([a-zA-Z0-9_]*)/);
-  const productId = uri.pathname.match(/(\d)+/)[0];
+
+  const productId = getProductIdBolCom(uri.pathname);
+  if (!productId) return null;
+
   const price = readPriceOnBolCom();
 
   const model = {

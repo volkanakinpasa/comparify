@@ -36,3 +36,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       break;
   }
 });
+
+chrome.runtime.onInstalled.addListener(function (details) {
+  if (details.reason == 'install') {
+    openOptionsPage();
+  }
+});

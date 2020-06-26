@@ -102,19 +102,10 @@ function load() {
         document.getElementById('template').innerHTML,
         {
           list: {},
-          bolcomimageurl: chrome.runtime.getURL('images/bolcom_logo.png'),
-          coolblueimageurl: chrome.runtime.getURL('images/coolblue_logo.png'),
         }
       );
       document.getElementById('output').innerHTML = output;
-      // document.getElementById('img-logo_bolcom').src = chrome.runtime.getURL(
-      //   'images/bolcom_logo.png'
-      // );
-      // document.getElementById('img-logo-coolblue').src = chrome.runtime.getURL(
-      //   'images/coolblue_logo.png'
-      // );
     } else {
-      // call
       const groupedList = groupBy(list, 'domain');
       console.log(groupedList);
 
@@ -122,8 +113,6 @@ function load() {
         document.getElementById('template').innerHTML,
         {
           list: groupedList,
-          bolcomimageurl: chrome.runtime.getURL('images/bolcom_logo.png'),
-          coolblueimageurl: chrome.runtime.getURL('images/coolblue_logo.png'),
         }
       );
 

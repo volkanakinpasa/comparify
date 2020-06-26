@@ -1,4 +1,19 @@
-﻿const validObjectOnCoolBlue = (e) => {
+﻿const getProductIdCoolBlue = (pathName) => {
+  const urlMatch = pathName.match(/product\/([0-9_]*)\/.*.html/);
+
+  if (
+    urlMatch &&
+    urlMatch.length > 1 &&
+    urlMatch[1] != '' &&
+    parseInt(urlMatch[1]) != NaN
+  ) {
+    return urlMatch[1];
+  } else {
+    return null;
+  }
+};
+
+const validObjectOnCoolBlue = (e) => {
   try {
     const model = getModelObjectOnCoolBlue(e);
     if (!model || !model.productId || isNaN(model.productId)) return false;
@@ -14,8 +29,6 @@ const readPriceOnCoolBlue = () => {
     const div = document.getElementsByClassName('sales-price__current')[0];
     if (div && div.innerText) {
       price = div.innerText;
-      price = price.split(',')[0];
-      price = price.replace('.', '');
     }
   } catch (err) {}
 
@@ -25,8 +38,9 @@ const readPriceOnCoolBlue = () => {
 const getModelObjectOnCoolBlue = (e) => {
   var url = e.target.URL;
   const title = e.target.title;
-  const productId = url.split('/')[4];
+  const productId = getProductIdCoolBlue(url);
   const price = readPriceOnCoolBlue();
+  if (!price) return null;
 
   const model = {
     title,

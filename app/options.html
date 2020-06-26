@@ -29,11 +29,15 @@
  
   <body>
     <div id="template" style="display: none;">
-      <div class="p-4 header">
-        <h1 class="display-3">Comparify</h1>
-        <p class="lead">
-          Compare products here from Bol.com & Coolblue & Amazon etc.
-        </p>
+      
+      <div>
+        <div class="p-4 header">
+          <h1 class="display-3">Comparify</h1>
+          <p class="lead">
+            Compare products here from Bol.com & Coolblue & Amazon etc.
+          </p>
+        </div>
+       
       </div>
       <div class="list p-4">
         {{#list.length}} {{#list}}
@@ -100,18 +104,17 @@
         </p>
  
         {{/list.length}}
-        <div class="product-list-external d-flex">
-          <div class="pr-4">
-            <a href="https://www.bol.com/">
-              <img id="img-logo_bolcom" class="border" src="{{bolcomimageurl}}" alt="" />
-            </a>
-          </div>
-          <div>
-            <a href="https://www.coolblue.nl/">
-              <img id="img-logo-coolblue" class="border" src="{{coolblueimageurl}}" alt="" />
-            </a>
-          </div>
-          <div></div>
+        <div class="product-list-external d-flex flex-row flex-wrap align-items-stretch justify-content-between py-3 h5">
+            <div class="px-2"><a href="https://www.amazon.com">amazon.com</a> </div>
+            <div class="px-2"><a href="https://www.amazon.de">amazon.de</a> </div>
+            <div class="px-2"><a href="https://www.amazon.co.uk">amazon.co.uk</a> </div>
+            <div class="px-2"><a href="https://www.amazon.cn">amazon.cn</a> </div>
+            <div class="px-2"><a href="https://www.amazon.co.jp">amazon.co.jp</a> </div>
+            <div class="px-2"><a href="https://www.amazon.fr">amazon.fr</a> </div>
+            <div class="px-2"><a href="https://www.amazon.ca">amazon.ca</a> </div>
+            <div class="px-2"><a href="https://www.amazon.nl">amazon.nl</a> </div>
+            <div class="px-2"><a href="https://www.bol.com">bol.com</a> </div>
+            <div class="px-2"><a href="https://www.coolblue.nl">coolblue.nl</a> </div>
         </div>
       </div>
     </div>

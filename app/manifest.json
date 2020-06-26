@@ -4,18 +4,26 @@
   "short_name": "Comparify",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "4.0.3",
-  "permissions": [
-    "https://www.bol.com/",
-    "https://www.coolblue.nl/",
-    "storage"
-  ],
+  "version": "4.1.0",
+  "permissions": ["storage"],
   "content_scripts": [
     {
-      "matches": ["https://www.bol.com/*", "https://www.coolblue.nl/*"],
+      "matches": [
+        "https://www.bol.com/*",
+        "https://www.coolblue.nl/*",
+        "*://*.amazon.com/*",
+        "*://*.amazon.de/*",
+        "*://*.amazon.co.uk/*",
+        "*://*.amazon.cn/*",
+        "*://*.amazon.co.jp/*",
+        "*://*.amazon.fr/*",
+        "*://*.amazon.ca/*",
+        "*://*.amazon.nl/*"
+      ],
       "js": [
         "content/bol.com.js",
         "content/coolblue.js",
+        "content/amazon.js",
         "content/generic.js",
         "content/content.js"
       ],

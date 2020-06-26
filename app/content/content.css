@@ -3,9 +3,19 @@
   right: 10px !important;
   position: fixed !important;
   bottom: 50px !important;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.compare-button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+.compare-image {
   width: 37px;
   height: 37px;
-  margin: 5px;
 }
 
 .compare-extension-disabled {

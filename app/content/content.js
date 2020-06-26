@@ -7,17 +7,17 @@
   div.className = 'compare-extension';
 
   var button = document.createElement('button');
-  button.id = 'comparify-button';
-  button.style.cssText = 'outline:none; border:0';
+  button.id = 'compare-button';
+  button.className = 'compare-button';
   button.onclick = function () {
     addToCompareList(e);
     return false;
   };
 
   const imageElement = document.createElement('img');
-  imageElement.id = 'comparify-image';
+  imageElement.id = 'compare-image';
+  imageElement.className = 'compare-image';
   imageElement.src = chrome.runtime.getURL('images/128.png');
-  imageElement.style.cssText = 'width: 37px;height: 37px;';
   imageElement.title = 'Compare';
   button.appendChild(imageElement);
   div.appendChild(button);
@@ -30,6 +30,8 @@ const getModelObjectFromPage = (e) => {
     return getModelObjectOnBolCom(e);
   } else if (domain.indexOf('coolblue.nl') > -1) {
     return getModelObjectOnCoolBlue(e);
+  } else if (domain.indexOf('amazon.') > -1) {
+    return getModelObjectOnAmazon(e);
   }
 };
 
@@ -39,6 +41,8 @@ const validObject = (e) => {
     return validObjectOnBolCom(e);
   } else if (domain.indexOf('coolblue.nl') > -1) {
     return validObjectOnCoolBlue(e);
+  } else if (domain.indexOf('amazon.') > -1) {
+    return validObjectOnAmazon(e);
   }
 };
 
