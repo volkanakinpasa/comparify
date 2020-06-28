@@ -106,7 +106,14 @@ function load() {
       );
       document.getElementById('output').innerHTML = output;
     } else {
-      const groupedList = groupBy(list, 'domain');
+      let groupedList = groupBy(list, 'domain');
+      groupedList = groupedList.map((item) => {
+        item.show = true;
+        if (item.domain.indexOf('amazon.') > -1) {
+          item.show = false;
+        }
+        return item;
+      });
       console.log(groupedList);
 
       const output = Mustache.render(

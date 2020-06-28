@@ -42,6 +42,7 @@
       <div class="list p-4">
         {{#list.length}} {{#list}}
         <div class="my-5">
+          {{#show}}
           <div>
             <button
               id="btn-compare-all-1"
@@ -51,6 +52,7 @@
               Compare on {{domain}}
             </button>
           </div>
+          {{/show}}
           <div class="d-flex flex-row flex-wrap align-items-stretch my-2">
             {{#values}}
             <div
