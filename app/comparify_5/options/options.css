@@ -1,0 +1,13 @@
+.header {
+  background-color: #ffb707;
+  color: black;
+}
+
+.header h1 {
+  font-weight: bold;
+}
+
+.btn-compare-all {
+  background-color: #ffb707;
+  color: black;
+}
